@@ -1,0 +1,142 @@
+/* ── リッツ・カールトンスタイル：黒×白切り替え×大判ビジュアル ── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Noto+Serif+JP:wght@200;300&family=Noto+Sans+JP:wght@300&display=swap');
+
+:root {
+  --color-dark:      #0e0e0e;
+  --color-dark-2:    #161616;
+  --color-light:     #fafaf8;
+  --color-light-2:   #f4f2ed;
+  --color-gold:      #c9a84c;
+  --color-gold-lt:   #e6c97a;
+  --color-text-dark: #f0ece0;
+  --color-text-light:#1a1a1a;
+  --color-muted-dk:  #888888;
+  --color-muted-lt:  #888888;
+  --color-border-dk: rgba(201,168,76,0.2);
+  --color-border-lt: rgba(26,26,26,0.12);
+  --font-display:    'Cormorant Garamond', 'Noto Serif JP', serif;
+  --font-serif:      'Noto Serif JP', serif;
+  --font-sans:       'Noto Sans JP', sans-serif;
+  --header-h:        80px;
+  --ease:            cubic-bezier(0.25,0.46,0.45,0.94);
+  --section-pad:     160px;
+  --inner-w:         1200px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--color-dark);
+  color: var(--color-text-dark);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.8;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+ul, ol { list-style: none; }
+
+/* ── スクロールアニメーション ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 1.1s var(--ease), transform 1.1s var(--ease);
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.fade-in.delay-1 { transition-delay: 0.2s; }
+.fade-in.delay-2 { transition-delay: 0.4s; }
+.fade-in.delay-3 { transition-delay: 0.6s; }
+
+/* ── セクション共通 ── */
+.section { padding: var(--section-pad) 0; }
+.section-inner { max-width: var(--inner-w); margin: 0 auto; padding: 0 64px; }
+
+/* ダークセクション */
+.section-dark {
+  background: var(--color-dark);
+  color: var(--color-text-dark);
+}
+/* ライトセクション */
+.section-light {
+  background: var(--color-light);
+  color: var(--color-text-light);
+}
+
+.section-eyebrow {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.5em;
+  color: var(--color-gold);
+  margin-bottom: 20px;
+}
+.section-eyebrow-dark { color: var(--color-muted-lt); }
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  margin-bottom: 72px;
+}
+.section-title-dark { color: var(--color-text-light); }
+
+.gold-line { width: 60px; height: 1px; background: var(--color-gold); }
+.gold-line-center { margin: 0 auto; }
+
+/* ── ボタン（ダーク用） ── */
+.btn {
+  display: inline-block;
+  padding: 15px 52px;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  cursor: pointer;
+  background: transparent;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+.btn:hover { background: var(--color-gold); color: var(--color-dark); }
+
+/* ライト背景用ボタン */
+.btn-dark {
+  border-color: var(--color-text-light);
+  color: var(--color-text-light);
+}
+.btn-dark:hover { background: var(--color-text-light); color: var(--color-light); }
+
+.btn-fill { background: var(--color-gold); color: var(--color-dark); }
+.btn-fill:hover { background: var(--color-gold-lt); }
+.section-cta { text-align: center; }
+
+/* ── ページヒーロー（ダーク） ── */
+.page-hero {
+  padding: calc(var(--header-h) + 100px) 0 100px;
+  text-align: center;
+  background: var(--color-dark-2);
+  border-bottom: 1px solid var(--color-border-dk);
+}
+.page-hero-eyebrow {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.5em;
+  color: var(--color-gold);
+  margin-bottom: 20px;
+}
+.page-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 60px);
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  color: var(--color-text-dark);
+}
+
+@media (max-width: 768px) {
+  :root { --section-pad: 80px; }
+  .section-inner { padding: 0 28px; }
+}
