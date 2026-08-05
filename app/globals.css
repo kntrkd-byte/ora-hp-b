@@ -136,7 +136,15 @@ ul, ol { list-style: none; }
   color: var(--color-text-dark);
 }
 
+/* 2カラム（アクセス等）— モバイルで縦積み */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
 @media (max-width: 768px) {
   :root { --section-pad: 80px; }
   .section-inner { padding: 0 28px; }
+  .two-col { grid-template-columns: 1fr; gap: 40px !important; }
 }

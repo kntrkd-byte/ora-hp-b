@@ -5,8 +5,8 @@ export const metadata = { title: "ACCESS | O-RA ～TOKYO～" };
 
 const info = [
   ["店名", "O-RA ～TOKYO～"],
-  ["住所", "東京都〇〇区〇〇 1-2-3\n〇〇ビル B1F"],
-  ["最寄り駅", "〇〇線「〇〇駅」徒歩3分"],
+  ["住所", "東京都千代田区鍛冶町1-6-2\n林ビル 3階"],
+  ["最寄り駅", "JR「神田駅」徒歩2分\n東京メトロ銀座線「神田駅」徒歩3分"],
   ["営業時間", "20:00 〜 翌 4:00"],
   ["定休日", "年中無休"],
 ];
@@ -20,11 +20,17 @@ export default function AccessPage() {
       </div>
       <section className="section">
         <div className="section-inner">
-          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:60, alignItems:"start" }}>
+          <div className="two-col" style={{ gap:60 }}>
             <ScrollFade>
-              <div style={{ width:"100%", aspectRatio:"4/3", background:"#1a1a1a", border:"1px solid var(--color-border)", display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column", gap:12 }}>
-                <span style={{ fontSize:12, letterSpacing:"0.2em", color:"var(--color-dim)" }}>Google Map</span>
-                <a href="https://maps.google.com" target="_blank" rel="noopener" style={{ fontSize:11, color:"var(--color-gold)", borderBottom:"1px solid var(--color-border)", paddingBottom:2 }}>Googleマップで見る →</a>
+              <div style={{ width:"100%", aspectRatio:"4/3", background:"#1a1a1a", border:"1px solid var(--color-border)", overflow:"hidden" }}>
+                <iframe
+                  src="https://maps.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E9%8D%9B%E5%86%B6%E7%94%BA1-6-2&hl=ja&z=17&output=embed"
+                  title="O-RA ～TOKYO～ 所在地マップ"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                  style={{ width:"100%", height:"100%", border:0, display:"block", filter:"grayscale(80%) invert(90%) hue-rotate(180deg)" }}
+                />
               </div>
             </ScrollFade>
             <ScrollFade delay={0.15}>
@@ -38,7 +44,7 @@ export default function AccessPage() {
               </dl>
               <div style={{ textAlign:"center", padding:"40px 0", border:"1px solid var(--color-border)", marginBottom:24 }}>
                 <p style={{ fontSize:12, letterSpacing:"0.2em", color:"var(--color-muted)", marginBottom:12 }}>ご予約・お問い合わせ</p>
-                <a href="tel:0000000000" style={{ fontFamily:"var(--font-serif)", fontSize:28, fontWeight:200, letterSpacing:"0.15em", color:"var(--color-gold)" }}>00-0000-0000</a>
+                <a href="tel:08023861671" style={{ fontFamily:"var(--font-serif)", fontSize:28, fontWeight:200, letterSpacing:"0.15em", color:"var(--color-gold)" }}>080-2386-1671</a>
                 <small style={{ display:"block", marginTop:8, fontSize:11, color:"var(--color-dim)" }}>営業時間内にお気軽にどうぞ</small>
               </div>
               <Link href="#" className="btn btn-fill" style={{ display:"block", textAlign:"center" }}>LINE でご予約</Link>

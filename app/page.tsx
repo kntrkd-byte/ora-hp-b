@@ -9,7 +9,7 @@ export default function Home() {
       {/* ① ヒーロー動画 — フルスクリーン */}
       <section style={{ position:"relative", height:"100vh", minHeight:640, overflow:"hidden" }}>
         <video
-          src="/video/hero.mp4"
+          src="/ora-hp-b/video/hero.mp4"
           autoPlay muted loop playsInline
           style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover" }}
         />
@@ -118,13 +118,13 @@ export default function Home() {
               borderTop:"1px solid var(--color-border-lt)",
               marginBottom:64,
             }}>
-              {["セット料金","指名料","延長料金"].map((label,i) => (
+              {[["初回料金","40分 ¥4,000"],["延長料金","20分 ¥2,000"],["指名料","¥1,500〜"]].map(([label,price],i) => (
                 <div key={label} style={{
                   padding:"56px 40px", textAlign:"center",
                   borderRight: i < 2 ? "1px solid var(--color-border-lt)" : "none",
                 }}>
                   <p style={{ fontFamily:"var(--font-display)", fontSize:10, letterSpacing:"0.4em", color:"var(--color-gold)", marginBottom:20 }}>{label}</p>
-                  <p style={{ fontSize:13, color:"var(--color-muted-lt)" }}>¥ お問い合わせください</p>
+                  <p style={{ fontSize:13, color:"var(--color-muted-lt)" }}>{price}</p>
                 </div>
               ))}
             </div>
@@ -169,15 +169,15 @@ export default function Home() {
         <div className="section-inner">
           <ScrollFade><span className="section-eyebrow" style={{ color:"var(--color-muted-lt)" }}>ACCESS</span></ScrollFade>
           <ScrollFade delay={0.15}><h2 className="section-title section-title-dark">アクセス</h2></ScrollFade>
-          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:80, alignItems:"start" }}>
+          <div className="two-col" style={{ gap:80 }}>
             <ScrollFade>
               <dl style={{ display:"grid", gridTemplateColumns:"90px 1fr", gap:"20px 28px", marginBottom:40 }}>
                 {[
-                  ["住所","東京都〇〇区〇〇 1-2-3\n〇〇ビル B1F"],
-                  ["最寄り駅","〇〇線「〇〇駅」徒歩3分"],
+                  ["住所","東京都千代田区鍛冶町1-6-2\n林ビル 3階"],
+                  ["最寄り駅","JR「神田駅」徒歩2分"],
                   ["営業時間","20:00 〜 翌 4:00"],
                   ["定休日","年中無休"],
-                  ["TEL","00-0000-0000"],
+                  ["TEL","080-2386-1671"],
                 ].map(([dt,dd]) => (
                   <div key={dt} style={{ display:"contents" }}>
                     <dt style={{ fontSize:10, letterSpacing:"0.25em", color:"var(--color-gold)", fontFamily:"var(--font-display)", paddingTop:4 }}>{dt}</dt>
@@ -191,9 +191,16 @@ export default function Home() {
               <div style={{
                 width:"100%", aspectRatio:"4/3", background:"#e8e4dd",
                 border:"1px solid var(--color-border-lt)",
-                display:"flex", alignItems:"center", justifyContent:"center",
+                overflow:"hidden",
               }}>
-                <span style={{ fontSize:12, letterSpacing:"0.2em", color:"#aaa" }}>Google Map</span>
+                <iframe
+                  src="https://maps.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E9%8D%9B%E5%86%B6%E7%94%BA1-6-2&hl=ja&z=17&output=embed"
+                  title="O-RA ～TOKYO～ 所在地マップ"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                  style={{ width:"100%", height:"100%", border:0, display:"block" }}
+                />
               </div>
             </ScrollFade>
           </div>
