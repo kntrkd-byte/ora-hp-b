@@ -15,14 +15,13 @@ export default function GalleryPage() {
           <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:10 }}>
             {photos.map((n, i) => (
               <ScrollFade key={n} delay={(i % 3) * 0.1}>
-                <div style={{
-                  aspectRatio:"4/3", background:"#1a1a1a",
-                  display:"flex", alignItems:"center", justifyContent:"center",
-                  cursor:"pointer", overflow:"hidden",
-                }}>
-                  <span style={{ fontSize:10, letterSpacing:"0.3em", color:"var(--color-dim)" }}>
-                    PHOTO {String(n).padStart(2,"0")}
-                  </span>
+                <div style={{ aspectRatio:"4/3", background:"#1a1a1a", overflow:"hidden" }}>
+                  <img
+                    src={`/ora-hp-b/images/gallery/gallery-${String(n).padStart(2,"0")}.jpg`}
+                    alt={`店内の様子 ${n}`}
+                    loading="lazy"
+                    style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }}
+                  />
                 </div>
               </ScrollFade>
             ))}

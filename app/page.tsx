@@ -87,11 +87,9 @@ export default function Home() {
             {casts.slice(0,4).map((cast,i) => (
               <ScrollFade key={cast.id} delay={i*0.1}>
                 <article style={{ border:"1px solid var(--color-border-dk)", overflow:"hidden" }}>
-                  <div style={{
-                    aspectRatio:"2/3", background:"#1e1e1e",
-                    display:"flex", alignItems:"center", justifyContent:"center",
-                  }}>
-                    <span style={{ fontSize:10, letterSpacing:"0.35em", color:"#444" }}>PHOTO</span>
+                  <div style={{ aspectRatio:"2/3", background:"#1e1e1e", overflow:"hidden" }}>
+                    <img src={cast.img} alt={cast.name} loading="lazy"
+                      style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
                   </div>
                   <div style={{ padding:"20px 18px", borderTop:"1px solid var(--color-border-dk)", textAlign:"center" }}>
                     <p style={{ fontFamily:"var(--font-display)", fontSize:20, fontWeight:300, letterSpacing:"0.2em", color:"var(--color-text-dark)", marginBottom:6 }}>{cast.name}</p>
@@ -148,12 +146,14 @@ export default function Home() {
               gap:8, marginBottom:64,
             }}>
               {/* 大きい1枚 */}
-              <div style={{ gridRow:"1 / 3", background:"#1e1e1e", display:"flex", alignItems:"center", justifyContent:"center", minHeight:400 }}>
-                <span style={{ fontSize:10, letterSpacing:"0.35em", color:"#444" }}>MAIN PHOTO</span>
+              <div style={{ gridRow:"1 / 3", background:"#1e1e1e", minHeight:400, overflow:"hidden" }}>
+                <img src="/ora-hp-b/images/gallery/gallery-01.jpg" alt="店内の様子 1" loading="lazy"
+                  style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
               </div>
               {[2,3,4,5].map(n => (
-                <div key={n} style={{ background:"#1a1a1a", aspectRatio:"4/3", display:"flex", alignItems:"center", justifyContent:"center" }}>
-                  <span style={{ fontSize:9, letterSpacing:"0.3em", color:"#444" }}>PHOTO {String(n).padStart(2,"0")}</span>
+                <div key={n} style={{ background:"#1a1a1a", aspectRatio:"4/3", overflow:"hidden" }}>
+                  <img src={`/ora-hp-b/images/gallery/gallery-0${n}.jpg`} alt={`店内の様子 ${n}`} loading="lazy"
+                    style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
                 </div>
               ))}
             </div>
@@ -175,7 +175,7 @@ export default function Home() {
                 {[
                   ["住所","東京都千代田区鍛冶町1-6-2\n林ビル 3階"],
                   ["最寄り駅","JR「神田駅」徒歩2分"],
-                  ["営業時間","20:00 〜 翌 4:00"],
+                  ["営業時間","19:00 〜 翌 5:00"],
                   ["定休日","年中無休"],
                   ["TEL","080-2386-1671"],
                 ].map(([dt,dd]) => (
