@@ -29,7 +29,7 @@ export default function AccessPage() {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   allowFullScreen
-                  style={{ width:"100%", height:"100%", border:0, display:"block", filter:"grayscale(80%) invert(90%) hue-rotate(180deg)" }}
+                  style={{ width:"100%", height:"100%", border:0, display:"block", filter:"invert(92%) hue-rotate(180deg) saturate(1.3) brightness(0.95)" }}
                 />
               </div>
             </ScrollFade>
